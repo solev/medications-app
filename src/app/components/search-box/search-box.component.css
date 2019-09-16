@@ -1,0 +1,6 @@
+/* Add mobile styles for the component here.  */
+TextField {
+    border-bottom-width: 1;
+    border-bottom-color: transparent;
+    placeholder-color: #C7C7C7;
+}

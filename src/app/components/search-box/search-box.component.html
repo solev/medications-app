@@ -1,0 +1,5 @@
+<GridLayout columns="auto,*" class="input" backgroundColor="#fff" borderColor="#ECECEC" marginBottom="30" padding="5" borderRadius="50" [shadow]="fabShadow">
+    <Image col="0" src="res://zoom_in"
+           width="20" height="20" margin="5"></Image>
+    <TextField col="1" hint="Medicaions, pills" #search (returnPress)="onReturn(search.text)"></TextField>
+</GridLayout>

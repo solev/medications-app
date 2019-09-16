@@ -1,0 +1,32 @@
+<ActionBar class="action-bar" backgroundColor="#6E78F7" color="#ffffff">
+</ActionBar>
+
+<GridLayout class="page" rows="auto, *" backgroundColor="#F5F5F5">
+
+    <StackLayout class="detail-image" id="bgImage" height="250" row="0" #topView verticalAlignment="top">
+        <Label text="i" class="backbtn" padding="10 10" margin="5 15" fontSize="20" (tap)="goBack()"></Label>
+    </StackLayout>
+
+    <ScrollView #scrollView borderTopRightRadius="20" borderTopLeftRadius="20" backgroundColor="#ffffff"   marginLeft="15" marginRight="15" marginTop="-25" row="1" scrollBarIndicatorVisible="false">
+        <StackLayout padding="15">
+            <Label [text]="medication.medicine_name" class="drug-title"></Label>
+            <Label [text]="medication.author"></Label>
+
+            <GridLayout columns="*,*" marginTop="25">
+                <Label col="0" [text]="medication.splshape_text" class="font-weight-bold" horizontalAlignment="left"></Label>
+                <Label col="1" [text]="medication.splcolor_text" class="font-weight-bold" horizontalAlignment="right"></Label>
+            </GridLayout>
+
+            <StackLayout class="hr-light" marginTop="10" marginBottom="10"></StackLayout>
+
+            <Label text="Ingredients" class="h3 font-weight-bold text-uppercase results-title"></Label>
+
+            <Label [text]="item" *ngFor="let item of medication.ingredients" class="text-semi-bold text-uppercase"></Label>
+
+            <StackLayout class="hr-light" marginTop="10" marginBottom="10"></StackLayout>
+
+
+        </StackLayout>
+    </ScrollView>
+
+</GridLayout>

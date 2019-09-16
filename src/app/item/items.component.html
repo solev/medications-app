@@ -1,0 +1,56 @@
+<!--
+The template defines the view of the component - what is actually rendered.
+In NativeScript applications the template is defined with XML using NativeScript UI elements.
+It is different from HTML. So instead of <input>, <span>, <div> etc. - we have <TextField>, <Label> and layouts.
+The important thing is that although the elements are different - all of the Angular’s template syntax works exactly the same.
+So you can still use template expressions, bindings, templates as well as all the built-in directives.
+-->
+
+<!--
+The ActionBar is the NativeScript common abstraction over the Android ActionBar and iOS NavigationBar.
+http://docs.nativescript.org/ui/action-bar
+-->
+<ActionBar class="action-bar" backgroundColor="#6E78F7" color="#ffffff">
+</ActionBar>
+
+<!--
+The GridLayout arranges its child elements in a table structure of rows and columns.
+A cell can contain multiple child elements, they can span over multiple rows and columns,
+and even overlap each other. The GridLayout has one column and one row by default.
+You can learn more about NativeScript layouts at https://docs.nativescript.org/ui/layout-containers.
+
+These components make use of several CSS class names that are part of the NativeScript
+core theme, such as p-20, btn, h2, and list-group. You can view a full list of the
+class names available for styling your app at https://docs.nativescript.org/ui/theme.
+-->
+<GridLayout class="page" rows="auto, auto, auto, *" backgroundColor="#F5F5F5">
+
+
+    <GridLayout row="0" backgroundColor="#6E78F7" color="#ffffff" height="100" borderBottomLeftRadius="24" borderBottomRightRadius="24" paddingLeft="15">
+        <Label text="Medications" verticalAlignment="center" class="page-title"></Label>
+    </GridLayout>
+
+    <StackLayout row="1" paddingLeft="20" paddingRight="20" marginTop="-20">
+       <SearchBox (search)="onSearch($event)"></SearchBox>
+    </StackLayout>
+
+    <StackLayout row="2" paddingLeft="20" paddingRight="20">
+        <Label text="Top Results" class="results-title"></Label>
+    </StackLayout>
+
+    <GridLayout row="3" rows="*" columns="*" class="results-container" borderTopLeftRadius="20" borderTopRightRadius="20">
+
+        <ListView [items]="medications" *ngIf="!loading" class="list-group" row="0"  (itemTap)="onItemTap($event)">
+            <ng-template let-item="item">
+                <Label [text]="item.medicine_name"
+                       class="list-group-item"></Label>
+            </ng-template>
+        </ListView>
+        <Label horizontalAlignment="center" *ngIf="!medications.length && !loading" text="No records found" fontSize="15" margin="12" row="0"></Label>
+
+        <ActivityIndicator [busy]="loading" *ngIf="loading" row="0" class="activity-indicator"></ActivityIndicator>
+    </GridLayout>
+
+</GridLayout>
+
+
