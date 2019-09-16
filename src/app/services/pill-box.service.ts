@@ -4,11 +4,12 @@ import {Observable} from "rxjs";
 import {Drug} from "~/app/models/drug";
 import {Constants} from "~/app/shared/constants";
 import {off} from "tns-core-modules/application";
+import {Interactions} from "~/app/models/interactions";
 
 @Injectable()
 export class PillBoxService {
 
-    limit: number = 50;
+    limit: number = 100;
 
 
     constructor(private http: HttpClient) {
@@ -28,5 +29,11 @@ export class PillBoxService {
         })
     }
 
-    interactions(r)
+    interactions(rxcui) : Observable<Interactions> {
+        let endpoint = `https://rxnav.nlm.nih.gov/REST/interaction/interaction.json?rxcui=${rxcui}&sources=DrugBank`;
+
+        return this.http.get<Interactions>(endpoint, {
+            headers: Constants.commonHeaders,
+        })
+    }
 }
