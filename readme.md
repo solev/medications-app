@@ -28,4 +28,4 @@ tns run android
 
 
 ## Download app
-
+[Version 1.0](https://github.com/solev/medications-app/releases/tag/v1.0)
