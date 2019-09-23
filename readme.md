@@ -3,6 +3,9 @@
 
 In this app you can find any medication or drug and view it's details
 
+## Download app
+[Version 1.0](https://github.com/solev/medications-app/releases/tag/v1.0)
+
 ## Development
 
 The app is built with [NativeScript](https://www.nativescript.org/)
@@ -26,6 +29,3 @@ Run application on connected device or emulator
 tns run android
 ```
 
-
-## Download app
-[Version 1.0](https://github.com/solev/medications-app/releases/tag/v1.0)
